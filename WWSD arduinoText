@@ -1,0 +1,109 @@
+/***************************************************************
+**
+**  wwsad - Serial only
+**  07/10/19 00:10 -works
+**  08/10/19 - 20:05 - reduced inputs from 3 to 1
+**  08/10/19 - 21:03 - SOLID
+**
+**
+******************************************************************/
+
+// pins
+const int ledPin = 13;        // led pin = digital 13
+const int buttonPin = 2;      // button pin = digital 2
+
+// variables
+int buttonState = 0;        // to hold variable for button press 
+int countPresses = 0;       // to count presses
+
+/* phrase generator */
+// phrases to return 
+
+String wouldDo[] = {
+"DEBUG EVERYTHING!",
+"Clear cache and cookies",
+"Insult Andy for some reason",
+"Email @ helpdesk",
+"Get a sandwich",
+"Pass it to Steve",
+"Blame architecture",
+"Rebuild it from Scratch",
+"Schedule a workshop",
+"Escalate",
+"Run a report to quantify",
+"Refer to quick start guide",
+"Try searching for it",
+"Give up",
+"Optimise it. With fire",
+"Ask Bev",
+"Remove it from the page",
+"Adjust the dashboard filters",
+"Automate it",
+"Deactivate it",
+"Just close the ticket",
+};
+
+String outputWouldDo;           // string to hold output phrase
+int countWouldDo = 22;          // count of phrase strings
+
+/* logic */
+int timerShort = 4;
+int timerMedium = 300; 
+int timerLong = 1000;
+
+
+/* setup */
+void setup()  {
+
+  // begin serial or replace with LCD begin later
+  Serial.begin(9600);     
+  Serial.print("on - setup");
+  delay(timerShort);
+  
+  pinMode(buttonPin, INPUT);        // set pin modes
+  pinMode(ledPin, OUTPUT);
+  delay(timerShort);
+
+  digitalWrite(ledPin, HIGH);       // little blinky
+  delay(timerMedium);
+  digitalWrite(ledPin, LOW);
+  delay(timerMedium);
+
+  /* phrases */
+  randomSeed(analogRead(0));    // get random value from unconnected analog pin noise 
+  delay(timerShort);
+ 
+    Serial.println("   ");
+    Serial.println(" What would Scott Abell Do?");
+    Serial.println("   ");
+    delay(timerLong);
+  
+  
+} 
+
+
+/* main loop */
+void loop()   {
+
+	
+  // read the button
+  buttonState = digitalRead(buttonPin);
+  if(buttonState == 1)  {             				// if it's pressed
+    outputWouldDo = wouldDo[random(countWouldDo)];  // get a random phrase
+    
+    Serial.println(outputWouldDo);       		   // put it on the screen
+    delay(timerLong);
+      
+    digitalWrite(ledPin, HIGH);    			       // blinky 
+    delay(timerLong);
+    digitalWrite(ledPin, LOW);
+    delay(timerShort);
+
+    Serial.println("   ");
+    Serial.println(" What would Scott Abell Do?");
+    Serial.println("   ");
+    delay(timerLong);    
+  }
+
+
+}
