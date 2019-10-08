@@ -1,0 +1,253 @@
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+const int switchPin = 6; 
+int switchState = 0; 
+//declaring the variable for the switch 
+int reply; 
+void setup() {
+pinMode(0, INPUT); 
+//power source for switch
+lcd.begin(16, 2);
+pinMode(switchPin, INPUT); 
+lcd.print("Ask the Magic");
+lcd.setCursor(0,1); 
+lcd.print("8 ball!"); 
+//welcome message 
+}
+void loop(){
+  switchState = digitalRead(switchPin); 
+  {
+    if(switchState == HIGH){
+      //when the switch is pressed 
+      reply = random(8); 
+      //return a random case 
+      lcd.clear();
+      lcd.setCursor(0, 0); 
+      lcd.print(""); 
+      lcd.setCursor(0,1); 
+      switch(reply){
+        case 0:
+        lcd.begin(16, 2);
+        lcd.print("It is");
+        lcd.setCursor(0,1); 
+        lcd.print("certain :)"); 
+        delay (2500); 
+        //maintain the first message 
+        lcd.clear();
+        //clear the first message
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        //print the second message 
+        break;
+        //next case 
+        case 1: 
+        lcd.begin(16, 2);
+        lcd.print("As I see it,");
+        lcd.setCursor(0,1); 
+        lcd.print("yes :)");
+       delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!");  
+        break; 
+        case 2:
+        lcd.begin(16, 2);
+        lcd.print("Reply hazy"); 
+        lcd.setCursor(0,1); 
+        lcd.print("try again :/");
+       delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!");  
+        break;
+        case 3:
+        lcd.begin(16, 2);
+        lcd.print("Don't count"); 
+        lcd.setCursor(0,1); 
+        lcd.print("on it :(");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break; 
+        case 4:
+        lcd.begin(16, 2);
+        lcd.print("It is"); 
+        lcd.setCursor(0,1); 
+        lcd.print("decidedly so :)");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break; 
+        case 5:
+        lcd.begin(16, 2);
+        lcd.print("Most"); 
+        lcd.setCursor(0,1);
+        lcd.print("likely :)"); 
+       delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break; 
+        case 6: 
+        lcd.begin(16, 2);
+        lcd.print("Ask again"); 
+        lcd.setCursor(0,1);
+        lcd.print("later :/");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 7:
+        lcd.begin(16, 2);
+        lcd.print("My reply is"); 
+        lcd.setCursor(0,1); 
+        lcd.print("no :(");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;   
+        case 8:
+        lcd.begin(16, 2);
+        lcd.print("Without a"); 
+        lcd.setCursor(0,1);
+        lcd.print("doubt :)");
+       delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 9:
+        lcd.begin(16, 2);
+        lcd.print("Outlook good :)"); 
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 10:
+        lcd.begin(16, 2);
+        lcd.print("Better not tell"); 
+        lcd.setCursor(0,1); 
+        lcd.print("you now :/");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 11:
+        lcd.begin(16, 2);
+        lcd.print("My sources"); 
+        lcd.setCursor(0,1);
+        lcd.print("say no :(");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 12: 
+        lcd.begin(16, 2);
+        lcd.print("Yes"); 
+        lcd.setCursor(0,1); 
+        lcd.print("definitely :)");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 13: 
+        lcd.begin(16, 2);
+        lcd.print("Yes :)");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 14:
+        lcd.begin(16, 2);
+        lcd.print("Cannot"); 
+        lcd.setCursor(0,1); 
+        lcd.print("predict now :/");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 15: 
+        lcd.begin(16, 2);
+        lcd.print("Outlook not"); 
+        lcd.setCursor(0,1);
+        lcd.print("so good :(");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 16: 
+        lcd.begin(16, 2);
+        lcd.print("You may rely"); 
+        lcd.setCursor(0,1);
+        lcd.print("on it :)");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break; 
+        case 17:
+        lcd.begin(16, 2);
+        lcd.print("Signs point"); 
+        lcd.setCursor(0,1);
+        lcd.print("to yes :)");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 18:
+        lcd.begin(16, 2);
+        lcd.print("Concentrate and"); 
+        lcd.setCursor(0,1);
+        lcd.print("ask again :/");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+        case 19:
+        lcd.begin(16, 2);
+        lcd.print("Very"); 
+        lcd.setCursor(0,1);
+        lcd.print("doubtful :(");
+        delay (2500); 
+        lcd.clear();
+        lcd.print("Ask another"); 
+        lcd.setCursor(0,1); 
+        lcd.print("question!"); 
+        break;
+      } 
+    } 
+  }
+}
+ 
